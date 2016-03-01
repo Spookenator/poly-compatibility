@@ -20,11 +20,11 @@ The element itself requires both paper-dialog and paper-button.
 
 the wrapper is as thin as possible:
 
-'''
+```
     <poly-Compatibility  path-To-Test="./modernizrtest.js" >
         sorry bud, cant help you, download one of these browsers or something!
     </poly-Compatibility>
-'''
+```
 
 the path-To-Test points to the modernizr file required for your build.
 the wrapper will load the file and inspect all the booleans.
