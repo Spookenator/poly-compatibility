@@ -14,7 +14,11 @@ Then, go ahead and download the element's dependencies:
 
     bower install
 
-The element itself requires both paper-dialog and paper-button.
+The element itself requires both paper-dialog and paper-button and underscore.
+
+## How to install
+
+    bower install poly-compatibility
 
 ## How to use
 
