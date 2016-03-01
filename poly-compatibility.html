@@ -1,0 +1,68 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../paper-button/paper-button.html">
+
+<script src="../underscore/underscore-min.js" ></script>
+
+<dom-module id="poly-Compatibility">
+    <style>
+    </style>
+    <template>
+       <paper-dialog modal opened={{showModal}} >
+            <h2>Browser incompatibility detected</h2>
+            <content></content>
+            <div class="buttons">
+             <paper-button dialog-dismiss>ok</paper-button>
+            </div>
+        </paper-dialog>
+    </template>
+    <script>
+        Polymer({
+            is: "poly-Compatibility",
+            properties:
+            {
+                   pathToTest: 
+                   {
+                       type: String,
+                       observer: "_pathToTestChanged"
+                   },
+                   showModal:
+                   {
+                       type: Boolean,
+                       notify: true,
+                   }
+                  
+            },
+            _pathToTestChanged: function()
+            {
+                if (this.pathToTest != null)
+                {
+                    var s = document.createElement("script");
+                    s.type = "text/javascript";
+                    s.src = this.pathToTest;
+                    document.getElementsByTagName("head")[0].appendChild(s);
+                }
+            },
+            alertFailure: function()
+            {
+                this.showModal = true;                              
+            },
+            ready: function () {
+                setTimeout(_.bind(this._runTests,this),1000);
+            },
+            attached: function () {
+              
+            },
+            _runTests: function()
+            {
+                var arr = _.filter(_.values(Modernizr), function(item){
+                    return _.isBoolean(item);
+                });
+                var allTrue = _.every(arr,function(item) {return item === true});
+                
+                if (!allTrue)
+                    this.alertFailure();
+            }
+        });
+    </script>
+</dom-module>

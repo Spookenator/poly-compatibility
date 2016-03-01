@@ -1,0 +1,32 @@
+{
+  "name": "poly-compatibility",
+  "version": "1.0.0",
+  "authors": [
+    "Edward Kruger <eduard@urbanautomation.co.za>"
+  ],
+  "description": "An element wrapper around Browser Compatibility.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "browser",
+    "compatibility"
+  ],
+  "main": "poly-jsTree.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/spookenator/poly-compatibility/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "paper-dialog": "PolymerElements/paper-dialog#~1.0.4",
+    "underscore":"*"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  }
+}
