@@ -48,7 +48,7 @@
                 this.showModal = true;                              
             },
             attached: function () {
-              _.bind(this._runTests,this);
+              this.async(this._runTests, 1000);
             },
             _runTests: function()
             {
