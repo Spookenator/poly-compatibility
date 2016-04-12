@@ -47,11 +47,8 @@
             {
                 this.showModal = true;                              
             },
-            ready: function () {
-                setTimeout(_.bind(this._runTests,this),1000);
-            },
             attached: function () {
-              
+              this.async(this._runTests, 1000);
             },
             _runTests: function()
             {
